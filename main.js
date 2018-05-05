@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-
+var token = process.env.TOKEN
 const adapter = new FileSync('database.json');
 const storeadapter = new FileSync('store.json');
 const db = low(adapter);
@@ -20,7 +20,7 @@ bot.on('ready', () => {
     console.log('Bot Ready !');
 });
 
-bot.login('NDM3Mzc3NjE0NzU2MTg0MDc0.Db1LLQ.olMQZ4_TBwc66JGqH15v2YGtTgI');
+bot.login(token)
 
 bot.on("guildMemberAdd", member => {
     member.guild.channels.find("name", "bienvenue-aurevoir").send(`:white_check_mark: ${member.user.username} Vient de rejoindre le serveur ! *help et *présentation sont tes nouveaux amis !`)
